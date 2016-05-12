@@ -1,0 +1,63 @@
+<% if @user != nil %>
+  <h5 style="font-weight:bold;text-align:center;"> Guía : <%= @user.email %> </h5>
+<% else %>
+  <h5 style="font-weight:bold;text-align:center;"> Resultados de Guías </h5>
+<% end %>
+<h5 style="text-align:center;"> Promedio: <%= @prom %> </h5>
+<table id="datatable" style="margin-left:auto; margin-right:auto; text-align:center;">
+    <thead>
+        <tr>
+            <th> ID </th>
+            <th>Puntaje</th>
+            <th>Intento</th>
+            <th>Museo</th>
+            <th>Sala</th>
+            <th>Fecha</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if @trypoints != nil %>
+          <% @trypoints.each do |trypoint| %>
+          <tr>
+              <td><%= trypoint.id %></td>
+              <td><%= trypoint.points %></td>
+              <td><%= trypoint.numTry %></td>
+              <td><%= trypoint.museo %></td>
+              <td><%= trypoint.sala %></td>
+              <td><%= trypoint.created_at %></td>
+          </tr>
+          <% end %>
+        <% else %>
+          <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+          </tr>
+        <% end %>
+    </tbody>
+</table>
+<script>
+  $("#datatable").dataTable({
+          "language": {
+              "lengthMenu": "Desplegar _MENU_ ",
+              "zeroRecords": "No se encontro nada",
+              "info": "Mostrando página _PAGE_ de _PAGES_",
+              "infoEmpty": "No hay tuplas disponibles",
+              "infoFiltered": "(filtrado de _MAX_ tuplas en total)",
+              "search":         "Buscar:",
+              "paginate": {
+                "first":      "Primero",
+                "last":       "Último",
+                "next":       "Siguiente",
+                "previous":   "Anterior"
+                },
+              "aria": {
+                "sortAscending":  ": activar para ordenar columna de manera ascendiente",
+                "sortDescending": ": activar para ordenar columna de manera descendiente"
+              }
+          }
+      });
+</script>

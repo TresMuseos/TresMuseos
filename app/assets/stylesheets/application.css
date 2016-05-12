@@ -1,0 +1,356 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require foundation_and_overrides
+ *= require dataTables/jquery.dataTables
+
+ */
+
+ body{
+     font-family: "futura-pt", helvetica, arial, sans-serif;
+ }
+
+ .signup-logo{
+     margin-left: auto;
+     margin-right: auto;
+     color: white;
+     text-align: center;
+     font-family: "futura-pt", helvetica, arial, sans-serif;
+ }
+
+ .center.row {
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 5%;
+    max-width: 700px;
+ }
+
+ .mainLogo{
+   width: 700px;
+   font-weight: bold;
+   font-size: 44px;
+ }
+
+ .signup-panel {
+   padding: 15px;
+   background-color: white;
+   border: 1px solid #a3a3a3;
+ }
+
+ .signup-panel i {
+   font-size: 30px;
+   line-height: 50px;
+   color: #999;
+ }
+
+ .signup-panel form input, .signup-panel form span {
+   height: 50px;
+ }
+
+ .signup-panel .welcome {
+   font-size: 36px;
+   text-align: center;
+   margin-left: 0;
+ }
+
+ .iniciarSesionTexto{
+   font-size: 20px;
+   margin-left: 44px;
+   line-height: 2.4;
+ }
+
+ .iniciarSesionCuadro{
+   width: 60%;
+   margin-right: 44px;
+   margin-top: -0.5px;
+ }
+
+ .recordarmeCheckbox{
+   margin-left: 3px;
+   transform: scale(1.5);
+   -webkit-transform: scale(1.5);
+ }
+
+ .textoBajoBoton{
+   margin-left: -40px;
+ }
+
+ .signup-panel .button {
+   margin-left: 35%;
+ }
+
+ section.active {
+    padding-top: 75px !important;
+ }
+
+ p.title {
+    border-bottom: 1px solid #cccccc !important;
+ }
+
+ .submit input{
+      width:100%;
+      margin-left: -44px;
+      font-size: 20px;
+ }
+
+ .submit a{
+     text-align: center;
+ }
+
+ .container{
+      width: 100%;
+      min-height:100%;
+      position:relative;
+      background-color: #52318e;
+      overflow-x:hidden;
+ }
+
+ .full{
+   position: absolute;;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #52318e;
+ }
+
+ .logo{
+    width: 200px;
+    height: 100px;
+    margin: 15px;
+ }
+
+ .callout.primary{
+   background-color: #52318e !important;
+   color: white !important;
+ }
+
+ .callout.secondary{
+   line-height: 0;
+   font-size: 12px;
+   height: 25px;
+   margin-top: -20px;
+   background-color: #EEEEEE !important;
+   color: black !important;
+ }
+
+ .navegation{
+   color: black !important;
+   background-color: transparent !important;
+ }
+.navegation:hover{
+  text-decoration: underline;
+  background-color: transparent !important;
+}
+
+ .gohome{
+   color: white !important;
+ }
+
+ .gohome:hover{
+   background-color: transparent !important;
+ }
+
+ .button.home{
+   background-color: white !important;
+   color: #52318e !important;
+   height: 100px;
+   font-size: 55px;
+ }
+
+ .button.home:hover{
+   color: #aeaeae !important;
+ }
+
+ .button.nuevo{
+   background-color: #52318e !important;
+   color: white !important;
+ }
+
+ .button.nuevo:hover{
+   background-color: #52318e !important;
+   color: #aeaeae !important;
+ }
+
+ .button.regresar{
+   background-color: #52318e !important;
+   color: white !important;
+ }
+
+ .button.regresar:hover{
+   background-color: #311D55 !important;
+   color: white !important;
+ }
+
+ .button.respuesta{
+   background-color: #f8511d !important;
+   color: white !important;
+ }
+
+ .button.respuesta:hover{
+   background-color: #dd4d4d !important;
+   color: white !important;
+ }
+
+ .header.title, .header.action{
+   display: inline;
+   font-size: 44px;
+ }
+
+ .header.action a{
+   font-size: 32px;
+   float: right;
+   padding-top: 16px;
+   color: white !important;
+ }
+
+ .header.action.signin a{
+   font-size: 16px;
+   float: right;
+   padding-top: 16px;
+   color: white !important;
+ }
+
+ .header.action a:hover{
+   background-color: transparent !important;
+   color: #aeaeae !important;
+ }
+
+.enter:hover{
+  color: black !important;
+  text-decoration: underline;
+  background-color: transparent !important;
+ }
+
+ .actions input, .submit input{
+   background-color: #52318e !important;
+   color: white !important;
+ }
+
+ .actions input, .submit input:hover{
+   cursor: pointer;
+ }
+
+ .hidden{
+   visibility: hidden;
+ }
+
+.museo_links a{
+  color: #52318e !important;
+}
+
+.museo_links a:hover{
+  text-decoration: underline;
+  background-color: transparent !important;
+}
+
+
+.user_links a{
+  color: #f8511d !important;
+}
+
+.user_links a:hover{
+  text-decoration: underline;
+  background-color: transparent !important;
+}
+
+.imagen{
+  max-height: 150px;
+  margin: 0 auto;
+}
+
+.thumbnail.imagenQuiz:hover {
+ -webkit-box-shadow: 0 0 6px 1px rgb(82, 49, 142);
+ box-shadow: 0 0 6px 1px rgb(82, 49, 142);
+}
+
+.row.containerHome{
+  width: 70%;
+  margin:0 auto;
+}
+
+.imagenRespuesta{
+  width: 300px;
+  height: 300px;
+}
+
+.imagenMenus{
+  width: 500px;
+  height: 200px;
+}
+
+.correctoIncorrecto{
+  font-weight: bold;
+  color: #52318e;
+  font-size: 60px;
+  font-family: "futura-pt", helvetica, arial, sans-serif;
+}
+
+.labelForms{
+  font-size: 15px;
+  font-weight: bold;
+  cursor: default;
+}
+
+.tituloForms {
+  font-weight: normal;
+}
+
+.radioButtonLabel{
+  position: relative;
+  top: -21px;
+  padding-right: 40px;
+}
+
+.radioButtonRespuesta{
+  position: relative;
+  left: 150px;
+  top: -32px;
+  padding-right: 40px;
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
+
+.radioButtonDiv{
+  position: relative;
+  left: 150px;
+  top: -52px;
+  padding-right: 40px;
+  transform: scale(1.2);
+  -webkit-transform: scale(1.2);
+}
+
+.buttonNewForms{
+  position: relative;
+  top: -60px;
+}
+
+.panelCustomeForms{
+  height: 650px;
+}
+
+.pretty th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+.pretty th .asc {
+  background-image: url(up.png);
+}
+
+.pretty th .desc {
+  background-image: url(down.png);
+}

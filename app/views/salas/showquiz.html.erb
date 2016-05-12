@@ -1,0 +1,112 @@
+<link rel="stylesheet" href="http://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+
+<script language="javascript" type="text/javascript">
+  function empezar() {
+    var pDiv = document.getElementById("preguntaDiv0");
+    pDiv.style.display = 'inline';
+  }
+</script>
+
+<div class="off-canvas-wrapper">
+  <div class="callout primary">
+    <% if user_signed_in? %>
+        <div style="background-color: #52318e; color: white; margin-top: -15px;">
+          &nbsp;
+          <div class="header action signin" style="background-color: #52318e; line-height: 24px;">
+            <%= link_to "Salir", destroy_admin_session_path, style:"height: 36px; padding-bottom: 1px;", :method => :delete %>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="row column">
+      <a href="/" class="gohome"><div class="header title">3 Museos</div></a>
+    </div>
+  </div>
+
+  <div class="callout secondary" style="background-color: #e6ccff;">
+    <div class="row column" >
+      <div >3 Museos >
+        <%= Museo.find(Exposicion.find(@sala.exposicion_id).museo_id).name %> >
+        <%= Exposicion.find(@sala.exposicion_id).name %> >
+        <b><%= @sala.name %></b>
+      </div>
+    </div>
+  </div>
+<div class="row medium-8 large-7 columns">
+    <% @preguntas.shuffle.each_with_index do |pregunta, index| %>
+      <% if pregunta.active %>
+        <div id="preguntaDiv<%= index %>" class="blog-post" style="display: none">
+          <% if index == 0 %> <script>empezar();</script> <% end %><br>
+          <h4 style="font-weight: bold;"><%= pregunta.description %></h4><br>
+          <% pregunta.answers.shuffle.each do |answer| %>
+            <% if answer.active %>
+              <a href="#" class="button expand respuesta" style="color:white; font-size:20px" onclick="showExtraInfo(<%= index %>, <%= answer.correct %>);return false;">
+                <%= answer.textAnswer %>
+              </a>
+            <% end %>
+          <% end %>
+        </div>
+        <div id="extraInfoDiv<%= index %>" class="row medium-8 large-7 columns" style="display: none">
+          <div class="blog-post">
+            <div align="center">
+              <h1 class="correctoIncorrecto" id="respuestaCorrecta<%= index %>">¡Respuesta correcta!</h1><br>
+              <%= image_tag(pregunta.imgURL, :class => "thumbnail imagenQuiz imagenRespuesta") %>
+            </div>
+            <div class="callout">
+              <p><%= pregunta.extraInfo %></p>
+            </div>
+            <% if index == @preguntas.size - 1 %>
+             <%= link_to "Enviar", endquiz_path, :class => "button expand regresar", :style=>"color:white" %>
+             <% else %>
+              <a href="#" class="button expand regresar" style="color:white" onclick="showSigPregunta(<%= index %>);return false;">
+                Siguiente
+              </a>
+             <% end %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+<script language="javascript" type="text/javascript">
+
+  function updateScore()
+  {
+    $.ajax({
+      type: "POST",
+      url: "/addpoint",
+      dataType: "json",
+      data: ({}),
+      beforeSend: function(jqXHR, settings) {
+        jqXHR.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'));
+      },
+      success: function(response, status)
+      {
+        console.log("status: ");
+        console.log(status);
+      }
+    });
+  }
+
+  function showExtraInfo(i, correcto) {
+    if(correcto) {
+      document.getElementById("respuestaCorrecta" + i).innerHTML = "¡Respuesta correcta!";
+      updateScore();
+    }
+    else {
+      document.getElementById("respuestaCorrecta" + i).innerHTML = "¡Respuesta incorrecta!";
+    }
+    var pDiv = document.getElementById("preguntaDiv" + i);
+    var iDiv = document.getElementById("extraInfoDiv" + i);
+    pDiv.style.display = 'none';
+    iDiv.style.display = 'inline';
+  }
+
+  function showSigPregunta(i) {
+    var sig = i + 1;
+    var pDiv = document.getElementById("preguntaDiv" + sig);
+    var iDiv = document.getElementById("extraInfoDiv" + i);
+    pDiv.style.display = 'inline';
+    iDiv.style.display = 'none';
+  }
+</script>

@@ -1,0 +1,44 @@
+<%= form_for(@exposicion) do |f| %>
+  <% if @exposicion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exposicion.errors.count, "error") %> prohibited this exposicion from being saved:</h2>
+
+      <ul>
+      <% @exposicion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Nombre, class: "labelForms" %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "Descripción", class: "labelForms" %><br>
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+    <%= f.label "Imagen URL", class: "labelForms" %><br>
+    <%= f.text_field :imgURL %>
+  </div>
+  <div class="field">
+    <%= f.label :Tipo, class: "labelForms" %><br>
+	<%= f.select :etype, ['Permanente', 'Semipermanente', 'Temporal']%>
+  </div>
+  <div class="field">
+    <%= f.label :Activa, class: "labelForms" %><br>
+    <div class="radioButtonDiv">
+	   <%= f.radio_button :active, 'true', checked: true %> <span class="radioButtonLabel">Sí</span>
+    <%= f.radio_button :active, 'false' %> <span class="radioButtonLabel">No</span>
+    </div>
+  </div>
+  <div class="field hidden" style="display:none;">
+    <%= f.label :museo_id %><br>
+    <%= f.text_field :museo_id, :value => @museoid   %>
+  </div>
+  <div class="actions buttonNewForms">
+    <%= f.submit "   Guardar   " %>
+  </div>
+<% end %>

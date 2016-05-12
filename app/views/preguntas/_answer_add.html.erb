@@ -1,0 +1,23 @@
+<fieldset class="no-border">
+  <div class="field">
+    <%= f.label :textAnswer, 'Texto de Respuesta', class: "labelForms" %>
+    <%= f.text_field :textAnswer %>
+  </div>
+
+  <div class="field">
+    <%= f.label :textAnswer, 'Opción', class: "labelForms" %>
+    <div class="radioButtonRespuesta">
+	   <%= f.radio_button :correct, 'true' %> <span class="radioButtonLabel">Correcta</span>
+    <%= f.radio_button :correct, 'false' %> <span class="radioButtonLabel">Incorrecta</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :textAnswer, 'Activa', class: "labelForms" %><br>
+    <div class="radioButtonDiv">
+	   <%= f.radio_button :active, 'true', checked: true %> <span class="radioButtonLabel">Sí</span>
+    <%= f.radio_button :active, 'false' %> <span class="radioButtonLabel">No</span>
+    </div>
+  </div>
+
+</fieldset>
